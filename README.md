@@ -1,4 +1,4 @@
-# A Consistent Multi-Platform Font Typeface Experience for React Native
+# A Step-by-step Guide to a Consistent Multi-Platform Font Typeface Experience in React Native
 
 ## Goal
 
