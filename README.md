@@ -1,10 +1,17 @@
+
+# A Consistent Multi-Platform Font Typeface Experience for React Native
+
 ## Goal
 
 Be able to use font styles modifiers such as `weight` and `style` in combination with a custom font family, in both iOS and Android.
 
 ```jsx
-<Text style={{ fontFamily: "Raleway", fontWeight: "100", style: "italic" }}>Hello world!</Text>
-<Text style={{ fontFamily: "Raleway", fontWeight: "bold", style: "normal" }}>Hello world!</Text>
+<Text style={{ fontFamily: "Raleway", fontWeight: "100", style: "italic" }}>
+  Hello world!
+</Text>
+<Text style={{ fontFamily: "Raleway", fontWeight: "bold", style: "normal" }}>
+  Hello world!
+</Text>
 ```
 
 ### Prerequisites
@@ -69,7 +76,7 @@ mkdir android/app/src/main/res/font
 cp /tmp/raleway/*.ttf android/app/src/main/res/font
 ```
 
-We must rename the font files following these rules:
+We must rename the font files following these rules to comply with Android asset names restrictions:
 
 - Replace `-` with `_`;
 - Replace any uppercase letter with its lowercase counterpart.
