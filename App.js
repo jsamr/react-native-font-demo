@@ -18,13 +18,7 @@ import {
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -65,10 +59,51 @@ const App: () => Node = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Text style={{fontFamily: 'raleway', fontWeight: '100', fontSize: 60}}>
+        <Text>Raleway, 100, normal:</Text>
+        <Text style={{fontFamily: 'Raleway', fontWeight: '100', fontSize: 60}}>
           Hello world!
         </Text>
+        <Text>System, 100, normal:</Text>
         <Text style={{fontWeight: '100', fontSize: 60}}>Hello world!</Text>
+        <Text>Raleway, 400, italic:</Text>
+        <Text
+          style={{
+            fontFamily: 'Raleway',
+            fontWeight: '400',
+            fontSize: 60,
+            fontStyle: 'italic',
+          }}>
+          Hello world!
+        </Text>
+        <Text>System, 400, italic:</Text>
+        <Text style={{fontWeight: '400', fontStyle: 'italic', fontSize: 60}}>
+          Hello world!
+        </Text>
+        <Text>Raleway, 900, normal:</Text>
+        <Text
+          style={{
+            fontFamily: 'Raleway',
+            fontWeight: '900',
+            fontSize: 60,
+          }}>
+          Hello world!
+        </Text>
+        <Text>System, 900, normal:</Text>
+        <Text style={{fontWeight: '900', fontSize: 60}}>Hello world!</Text>
+        <Text>Raleway, 900, italic:</Text>
+        <Text
+          style={{
+            fontFamily: 'Raleway',
+            fontWeight: '900',
+            fontSize: 60,
+            fontStyle: 'italic',
+          }}>
+          Hello world!
+        </Text>
+        <Text>System, 900, italic:</Text>
+        <Text style={{fontWeight: '900', fontSize: 60, fontStyle: 'italic'}}>
+          Hello world!
+        </Text>
       </ScrollView>
     </SafeAreaView>
   );
