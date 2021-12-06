@@ -32,7 +32,20 @@ You need the [whole Raleway font family](https://fonts.google.com/share?selectio
 - `Raleway-Black.ttf` (900)
 - `Raleway-BlackItalic.ttf`
 
-We will assume those files are now stored in `/tmp/raleway/`
+We will assume those files are now stored in `/tmp/raleway/`.
+
+#### Find the font family name
+
+> You will need **otfinfo** installed in your system to perform this step.
+> It is shipped with many Linux distributions. On MacOS, install it via
+> **lcdf-typetools** brew package.
+
+```sh
+otfinfo --family Raleway-Regular.ttf
+```
+
+Should print "Raleway". This value must be retained for the Android setup.
+This name will be used in React `fontFamily` style.
 
 #### Setup
 
@@ -85,7 +98,9 @@ fi
 
 ##### 2. Create the definition file
 
-Create the `android/app/src/main/res/font/raleway.xml` file with the below content:
+Create the `android/app/src/main/res/font/raleway.xml` file with the below content. Basically,
+we must create one entry per `fontStyle` / `fontWeight` combination we wish to support, and
+register the corresponding asset name.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -113,7 +128,9 @@ Create the `android/app/src/main/res/font/raleway.xml` file with the below conte
 
 ##### 3. Register the new font
 
-In `android/app/src/main/java/**/MainApplication.java`, register the font inside `onCreate` method:
+In `android/app/src/main/java/com/fontdemo/MainApplication.java`, bind the font family name with the asset we just created inside `onCreate` method.
+
+> :warning: If you are registering a different font, make sure you replace "Raleway" with the name found in the former step (find font family name).
 
 ```diff
 --- a/android/app/src/main/java/com/fontdemo/MainApplication.java
@@ -139,7 +156,9 @@ In `android/app/src/main/java/**/MainApplication.java`, register the font inside
 
 ## iOS
 
-On iOS, things will get much easier. We will basically just need to use React Native asset link functionnality.
+On iOS, things will get much easier. We will basically just need to use React Native asset link functionality.
+This method requires that we use the font family name retrieved in the first step
+as `fontFamily` style attribute.
 
 ### Copy font files to assets folder
 
@@ -148,7 +167,7 @@ mkdir -p assets/fonts
 cp /tmp/raleway/*.ttf assets/fonts
 ```
 
-### Add `react-native.config.js` 
+### Add `react-native.config.js`
 
 ```js
 module.exports = {
@@ -165,3 +184,27 @@ module.exports = {
 ```sh
 react-native link
 ```
+
+You can remove assets for android generated with this command, since we are using the XML Font method.
+Otherwise, they would be included twice in the app bundle!
+
+```sh
+rm -rf android/app/src/main/assets/fonts
+```
+
+## Result
+
+<table>
+<thead>
+<tr>
+<th>iOS</th>
+<th>Android</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/react-native-fonts-ios.png" /></td>
+<td><img src="img/react-native-fonts-android.png" /></td>
+</tr>
+</tbody>
+</table>
