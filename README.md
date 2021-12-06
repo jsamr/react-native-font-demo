@@ -5,10 +5,18 @@
 Be able to use font typeface modifiers such as `fontWeight` and `fontStyle` in combination with a custom font family, in both iOS and Android.
 
 ```jsx
-<Text style={{ fontFamily: "Raleway", fontWeight: "100", style: "italic" }}>
+<Text style={{
+  fontFamily: "Raleway",
+  fontWeight: "100",
+  style: "italic"
+}}>
   Hello world!
 </Text>
-<Text style={{ fontFamily: "Raleway", fontWeight: "bold", style: "normal" }}>
+<Text style={{
+  fontFamily: "Raleway",
+  fontWeight: "bold",
+  style: "normal"
+}}>
   Hello world!
 </Text>
 ```
