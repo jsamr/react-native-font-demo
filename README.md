@@ -74,9 +74,7 @@ cd FontDemo
 
 For Android, we are going to use [XML Fonts](https://developer.android.com/guide/topics/ui/look-and-feel/fonts-in-xml) to define variants of a base font family.
 
-> **Remark**:
-> There has been an attempt to provide enhanced support for this method in React Native via commit [f01c4e2a14c194c7a02bc5afe1900573af02b0c7](https://github.com/facebook/react-native/commit/f01c4e2a14c194c7a02bc5afe1900573af02b0c7).
-> But [it has been reversed](https://github.com/facebook/react-native/commit/eb40b09bfd0e617912663fb056d0bdea85ce0c2f) for performance concerns. Hopefully, one day this will be almost entirely automated.
+> **Remark**: This procedure is available in React Native since commit [fd6386a07eb75a8ec16b1384a3e5827dea520b64](https://github.com/facebook/react-native/commit/fd6386a07eb75a8ec16b1384a3e5827dea520b64) (7 May 2019 ), with the addition of `ReactFontManager::addCustomFont` method.
 
 ##### 1. Copy and rename assets to the resource font folder
 
