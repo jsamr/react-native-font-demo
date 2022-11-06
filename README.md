@@ -196,14 +196,11 @@ module.exports = {
 ### Link
 
 ```sh
-react-native link
-```
+# Disable Android linking
+npx react-native-asset --ios-assets
 
-You can remove assets for android generated with this command, since we are using the XML Font method.
-Otherwise, they would be included twice in the app bundle!
-
-```sh
-rm -rf android/app/src/main/assets/fonts
+# Link assets (to iOS)
+npx react-native-asset
 ```
 
 ## Result
