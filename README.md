@@ -189,21 +189,18 @@ module.exports = {
     ios: {},
     android: {},
   },
-  assets: ['./assets/fonts'],
+  iosAssets: ['./assets/fonts'],
 };
 ```
 
 ### Link
 
 ```sh
+# react-native >= 0.69
+npx react-native-asset 
+
+# otherwise
 react-native link
-```
-
-You can remove assets for android generated with this command, since we are using the XML Font method.
-Otherwise, they would be included twice in the app bundle!
-
-```sh
-rm -rf android/app/src/main/assets/fonts
 ```
 
 ## Result
