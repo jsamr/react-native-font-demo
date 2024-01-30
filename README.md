@@ -168,6 +168,34 @@ In `android/app/src/main/java/com/fontdemo/MainApplication.java`, bind the font 
 
 ```
 
+**On React Native 0.73+**
+
+```diff
+--- a/android/app/src/main/java/com/fontdemo/MainApplication.kt
++++ b/android/app/src/main/java/com/fontdemo/MainApplication.kt
+import com.facebook.react.ReactApplication
+import com.facebook.react.ReactHost
+import com.facebook.react.ReactNativeHost
+import com.facebook.react.ReactPackage
++import com.facebook.react.common.assets.ReactFontManager
+import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load
+import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
+import com.facebook.react.defaults.DefaultReactNativeHost
+
+
+  override fun onCreate() {
+    super.onCreate()
++    ReactFontManager.getInstance().addCustomFont(this, "Raleway", R.font.raleway);
+    SoLoader.init(this, false)
+    if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
+      // If you opted-in for the New Architecture, we load the native entry point for this app.
+      load()
+    }
+    ReactNativeFlipper.initializeFlipper(this, reactNativeHost.reactInstanceManager)
+  }
+
+```
+
 ## iOS
 
 On iOS, things will get much easier. We will basically just need to use React Native asset link functionality.
@@ -197,7 +225,7 @@ module.exports = {
 
 ```sh
 # react-native >= 0.69
-npx react-native-asset 
+npx react-native-asset
 
 # otherwise
 react-native link
