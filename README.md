@@ -8,14 +8,14 @@ Be able to use font typeface modifiers such as `fontWeight` and `fontStyle` in c
 <Text style={{
   fontFamily: "Raleway",
   fontWeight: "100",
-  style: "italic"
+  fontStyle: "italic"
 }}>
   Hello world!
 </Text>
 <Text style={{
   fontFamily: "Raleway",
   fontWeight: "bold",
-  style: "normal"
+  fontStyle: "normal"
 }}>
   Hello world!
 </Text>
